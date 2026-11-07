@@ -1,0 +1,47 @@
+# Unity에서 생성하는 캐시, 빌드, 로그, 캡처
+/WildWar/[Ll]ibrary/
+/WildWar/[Tt]emp/
+/WildWar/[Oo]bj/
+/WildWar/[Bb]uild/
+/WildWar/[Bb]uilds/
+/WildWar/[Ll]ogs/
+/WildWar/[Uu]ser[Ss]ettings/
+/WildWar/[Mm]emory[Cc]aptures/
+/WildWar/[Rr]ecordings/
+
+# 로컬 편집기 설정과 Unity가 생성하는 IDE 프로젝트
+.vscode/
+.vs/
+.idea/
+/WildWar/*.sln
+/WildWar/*.slnx
+/WildWar/*.csproj
+/WildWar/*.user
+
+# Node.js 의존성, 빌드 출력, 테스트 결과
+node_modules/
+/NodeServer/dist/
+/NodeServer/coverage/
+*.log
+
+# Caddy 실행 파일과 프로젝트에 저장할 수 있는 로컬 인증서 데이터
+/caddy/caddy.exe
+/caddy/certificates/
+/caddy/pki/
+/caddy/autosave.json
+/NodeServer/certs/
+
+# 환경 변수와 개인키
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# OS가 생성하는 파일
+Thumbs.db
+Desktop.ini
+.DS_Store
