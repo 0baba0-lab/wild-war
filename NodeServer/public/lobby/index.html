@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wild War 대기실</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script type="module" src="/assets/lobby.js"></script>
+</head>
+<body>
+  <div class="page lobby-page">
+    <header class="page-header">
+      <h1 class="brand"><img src="/assets/wild-war-symbol-02.png" alt="" width="28" height="32">WILD WAR</h1>
+      <button type="button" id="leave-room" class="leave-room">나가기</button>
+    </header>
+
+    <main class="lobby-content stack" aria-label="대기실">
+      <div class="room-code">
+        <span>방 코드</span>
+        <output id="room-code" class="code-value">••••••••••••••••</output>
+        <button type="button" id="show-code" aria-controls="room-code" aria-pressed="false" disabled>보기</button>
+        <button type="button" id="copy-code" disabled>복사</button>
+      </div>
+
+      <section class="player-panel panel" aria-labelledby="player-heading">
+        <h2 id="player-heading">플레이어 —/4</h2>
+        <p id="lobby-match-progress" class="lobby-match-progress" role="status" hidden></p>
+        <ul id="player-list" class="player-list"></ul>
+      </section>
+
+      <div id="host-actions" class="host-actions" hidden>
+        <button type="button" id="public-room" aria-pressed="false">방 공개</button>
+        <button type="button" id="start-game" class="primary" disabled>게임 시작</button>
+      </div>
+      <section class="chat-panel panel" aria-labelledby="chat-heading">
+        <h2 id="chat-heading">대기실 채팅</h2>
+        <ul id="chat-messages" class="message-list" aria-live="polite"></ul>
+        <form id="chat-form" class="inline-form">
+          <input name="text" aria-label="채팅 메시지" placeholder="메시지 입력" required maxlength="300">
+          <button type="submit">보내기</button>
+        </form>
+      </section>
+      <p id="lobby-status" class="status" role="status" hidden></p>
+    </main>
+  </div>
+
+  <dialog id="public-dialog" aria-labelledby="public-heading">
+    <form id="public-form" class="stack">
+      <h2 id="public-heading">랜덤 매칭 인원 선택</h2>
+      <div class="player-options" role="group" aria-label="공개할 매칭 인원">
+        <label class="player-choice"><input type="radio" name="size" value="2" required><span>2인</span></label>
+        <label class="player-choice"><input type="radio" name="size" value="3" required><span>3인</span></label>
+        <label class="player-choice"><input type="radio" name="size" value="4" required><span>4인</span></label>
+      </div>
+      <div class="host-actions">
+        <button type="button" id="cancel-public">취소</button>
+        <button type="submit" class="primary" id="confirm-public">공개</button>
+      </div>
+      <p id="public-status" class="status" role="status" hidden></p>
+    </form>
+  </dialog>
+
+  <template id="player-row">
+    <li class="player-row">
+      <span class="player-name"></span>
+      <span class="player-ping" title="서버 왕복 시간"></span>
+      <span class="host-mark" hidden>♛ 방장</span>
+      <button type="button" class="remove-player" hidden>×</button>
+    </li>
+  </template>
+</body>
+</html>

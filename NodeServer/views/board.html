@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wild War 게시판</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script type="module" src="/assets/board.js"></script>
+</head>
+<body>
+  <div class="page board-page">
+    <header class="page-header">
+      <a class="brand" href="/"><img src="/assets/wild-war-symbol-02.png" alt="" width="28" height="32">WILD WAR</a>
+      <a class="button-link leave-room" href="/">첫 화면</a>
+    </header>
+
+    <main class="board-content stack">
+      <div class="board-list-header">
+        <h1 id="board-heading">게시판</h1>
+        <button id="open-write" type="button" disabled>글쓰기</button>
+      </div>
+      <section class="panel board-list" aria-labelledby="posts-heading">
+        <h2 id="posts-heading">글 목록</h2>
+        <ul id="board-posts" class="message-list"></ul>
+        <p id="board-status" class="status" role="status" hidden></p>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="write-dialog" class="board-window" aria-labelledby="write-heading">
+    <div class="board-list-header">
+      <h2 id="write-heading">글쓰기</h2>
+      <button id="close-write" type="button">닫기</button>
+    </div>
+    <form id="board-form" class="stack">
+      <div class="board-author-fields stack">
+        <label>닉네임 <input name="nickname" required maxlength="24" autocomplete="off"></label>
+        <label>글 비밀번호
+          <input name="password" type="password" required maxlength="20" autocomplete="new-password">
+        </label>
+      </div>
+      <label>제목 <input name="title" required maxlength="80"></label>
+      <label>내용 <textarea name="body" required maxlength="2000"></textarea></label>
+      <button type="submit" class="primary">글 작성</button>
+      <p id="write-status" class="status" role="status" hidden></p>
+    </form>
+  </dialog>
+
+  <dialog id="post-dialog" class="board-window post-window" aria-labelledby="post-title">
+    <div class="board-list-header">
+      <h2 id="post-title"></h2>
+      <div class="post-actions">
+        <button id="edit-post" type="button">수정</button>
+        <button id="delete-post" type="button">삭제</button>
+        <button id="close-post" type="button">닫기</button>
+      </div>
+    </div>
+    <p id="post-author" class="post-author" hidden></p>
+    <p id="post-body" class="post-body"></p>
+    <form id="manage-post" class="stack" hidden>
+      <fieldset id="edit-fields" class="stack">
+        <label>제목 <input name="title" required maxlength="80"></label>
+        <label>내용 <textarea name="body" required maxlength="2000"></textarea></label>
+      </fieldset>
+      <label class="board-password-field">글 비밀번호
+        <input name="password" type="password" required maxlength="20" autocomplete="current-password">
+      </label>
+      <button id="manage-submit" type="submit" class="primary"></button>
+    </form>
+    <p id="post-status" class="status" role="status" hidden></p>
+  </dialog>
+</body>
+</html>

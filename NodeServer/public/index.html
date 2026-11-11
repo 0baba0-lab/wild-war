@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wild War</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script type="module" src="/assets/entry.js"></script>
+</head>
+<body>
+  <div class="page entry-page">
+    <header class="page-header">
+      <h1 class="brand"><img src="/assets/wild-war-symbol-02.png" alt="" width="28" height="32">WILD WAR</h1>
+      <p id="online-count" class="online-count">현재 접속 —</p>
+      <nav class="board-links" aria-label="게시판">
+        <a class="button-link" href="/boards/free/">자유게시판</a>
+        <a class="button-link" href="/boards/bugs/">버그게시판</a>
+      </nav>
+    </header>
+
+    <main class="entry-actions panel">
+      <form id="match-form" class="stack" aria-label="랜덤 매칭">
+        <div class="player-options" role="group" aria-label="랜덤 매칭 인원">
+          <label class="player-choice"><input type="radio" name="size" value="2" required><span>2인</span></label>
+          <label class="player-choice"><input type="radio" name="size" value="3"><span>3인</span></label>
+          <label class="player-choice"><input type="radio" name="size" value="4"><span>4인</span></label>
+        </div>
+        <button type="submit" id="start-match" class="primary">랜덤 매칭</button>
+        <button type="button" id="cancel-match" hidden>매칭 취소</button>
+      </form>
+      <button type="button" id="create-room">방 생성</button>
+      <p id="entry-status" class="status" role="status" hidden></p>
+    </main>
+
+    <div class="entry-footer stack">
+      <p id="match-progress" class="status" role="status" hidden></p>
+      <form id="invite-form" class="invite-form" aria-label="초대 코드 입장">
+        <input type="text" name="code" aria-label="초대 코드" placeholder="초대 코드"
+               required maxlength="16" autocomplete="off" spellcheck="false">
+        <button type="submit">입장</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
