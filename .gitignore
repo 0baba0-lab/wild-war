@@ -22,6 +22,7 @@
 node_modules/
 /NodeServer/dist/
 /NodeServer/coverage/
+/NodeServer/data/
 *.log
 
 # Caddy 실행 파일과 프로젝트에 저장할 수 있는 로컬 인증서 데이터
