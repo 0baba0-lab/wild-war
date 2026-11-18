@@ -1,3 +1,11 @@
 summerbug.shop {
-    reverse_proxy 127.0.0.1:5000
+    # /unity/로 들어오는 연결을 Unity 게임 서버로 전달한다.
+    handle_path /unity/* {
+        reverse_proxy 127.0.0.1:7777
+    }
+
+    # 홈페이지와 나머지 요청은 Node로 전달한다.
+    handle {
+        reverse_proxy 127.0.0.1:5000
+    }
 }
